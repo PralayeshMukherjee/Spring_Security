@@ -26,6 +26,7 @@ public class SpringSecurityConfig {
         http.formLogin(withDefaults());
         http.httpBasic(withDefaults());
         http.headers(headers->headers.frameOptions(frameOptions -> frameOptions.sameOrigin()));
+        http.csrf(csrf->csrf.disable());
         return http.build();
     }
     @Bean
