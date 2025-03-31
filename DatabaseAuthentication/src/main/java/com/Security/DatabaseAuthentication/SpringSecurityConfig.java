@@ -53,6 +53,7 @@ public class SpringSecurityConfig {
         return jdbcUserDetailsManager;
 //        return new InMemoryUserDetailsManager(user1,admin);
     }
+    @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
