@@ -40,7 +40,7 @@ public class SpringSecurityConfig {
     @Bean
     public UserDetailsService userDetailsService(){
         UserDetails user1 = User.withUsername("user1")
-                .password("{noop}0000")
+                .password(passwordEncoder().encode("0000"))
                 .roles("USER")
                 .build();
         UserDetails admin = User.withUsername("admin")
