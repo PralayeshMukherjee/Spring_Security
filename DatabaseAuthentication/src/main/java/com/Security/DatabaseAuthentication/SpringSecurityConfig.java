@@ -44,7 +44,7 @@ public class SpringSecurityConfig {
                 .roles("USER")
                 .build();
         UserDetails admin = User.withUsername("admin")
-                .password("{noop}1111")
+                .password(passwordEncoder().encode("1111"))
                 .roles("ADMIN")
                 .build();
         JdbcUserDetailsManager jdbcUserDetailsManager = new JdbcUserDetailsManager(dataSource);
