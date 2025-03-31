@@ -46,6 +46,8 @@ public class SpringSecurityConfig {
                 .roles("ADMIN")
                 .build();
         JdbcUserDetailsManager jdbcUserDetailsManager = new JdbcUserDetailsManager(dataSource);
+        jdbcUserDetailsManager.createUser(user1);
+        jdbcUserDetailsManager.createUser(admin);
 //        return new InMemoryUserDetailsManager(user1,admin);
     }
 }
