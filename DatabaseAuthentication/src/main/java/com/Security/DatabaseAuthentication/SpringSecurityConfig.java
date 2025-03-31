@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 import static org.springframework.security.config.Customizer.withDefaults;
@@ -18,6 +19,7 @@ import static org.springframework.security.config.Customizer.withDefaults;
 @EnableWebSecurity
 @EnableMethodSecurity
 public class SpringSecurityConfig {
+
     @Bean
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests((requests) -> requests.requestMatchers("/h2-console/**").permitAll().
@@ -39,6 +41,7 @@ public class SpringSecurityConfig {
                 .password("{noop}1111")
                 .roles("ADMIN")
                 .build();
-        return new InMemoryUserDetailsManager(user1,admin);
+        JdbcUserDetailsManager jdbcUserDetailsManager = new JdbcUserDetailsManager()
+//        return new InMemoryUserDetailsManager(user1,admin);
     }
 }
