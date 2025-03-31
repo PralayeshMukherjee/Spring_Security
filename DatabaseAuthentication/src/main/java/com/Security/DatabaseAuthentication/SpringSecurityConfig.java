@@ -45,7 +45,7 @@ public class SpringSecurityConfig {
                 .password("{noop}1111")
                 .roles("ADMIN")
                 .build();
-        JdbcUserDetailsManager jdbcUserDetailsManager = new JdbcUserDetailsManager()
+        JdbcUserDetailsManager jdbcUserDetailsManager = new JdbcUserDetailsManager(dataSource);
 //        return new InMemoryUserDetailsManager(user1,admin);
     }
 }
