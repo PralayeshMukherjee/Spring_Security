@@ -48,6 +48,7 @@ public class SpringSecurityConfig {
         JdbcUserDetailsManager jdbcUserDetailsManager = new JdbcUserDetailsManager(dataSource);
         jdbcUserDetailsManager.createUser(user1);
         jdbcUserDetailsManager.createUser(admin);
+        return jdbcUserDetailsManager;
 //        return new InMemoryUserDetailsManager(user1,admin);
     }
 }
