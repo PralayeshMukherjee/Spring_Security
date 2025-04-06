@@ -4,6 +4,7 @@ package com.JWT.SpringSecurityJWT.jwt;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.MalformedJwtException;
+import io.jsonwebtoken.UnsupportedJwtException;
 import io.jsonwebtoken.security.Keys;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Value;
@@ -56,6 +57,8 @@ public class JwtUtils {
             System.out.println("Invalid JWT token: {}"+e.getMessage());
         }catch (ExpiredJwtException e){
             System.out.println("Jwt token is expired: {}"+e.getMessage());
+        }catch (UnsupportedJwtException e){
+            System.out.println("Jwt token is unsupported: {}"+e.getMessage());
         }
     }
 }
