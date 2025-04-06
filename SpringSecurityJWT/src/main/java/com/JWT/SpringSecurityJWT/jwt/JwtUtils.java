@@ -4,6 +4,7 @@ package com.JWT.SpringSecurityJWT.jwt;
 import io.jsonwebtoken.security.Keys;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import java.security.Key;
@@ -25,5 +26,8 @@ public class JwtUtils {
     }
     private Key key(){
         return Keys.hmacShaKeyFor(Decoder.BASE64.decode(jwtSecret));
+    }
+    public String generateTokenFromUsername(UserDetails userDetails){
+
     }
 }
