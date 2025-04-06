@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
+import javax.crypto.SecretKey;
 import java.security.Key;
 import java.util.Base64;
 import java.util.Date;
@@ -37,5 +38,11 @@ public class JwtUtils {
                 .expiration(new Date((new Date().getTime()+jwtExpirationMs)))
                 .signWith(key())
                 .compact();
+    }
+    public String getUserNameFromJwtToken(String token){
+        return Jwts.parser()
+                .verifyWith((SecretKey) key())
+                .build().parseSignedClaims(token)
+                .getPayload().getSubject();
     }
 }
