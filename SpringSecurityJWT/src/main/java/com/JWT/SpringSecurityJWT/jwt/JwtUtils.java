@@ -45,4 +45,7 @@ public class JwtUtils {
                 .build().parseSignedClaims(token)
                 .getPayload().getSubject();
     }
+    public boolean validateJwtToken(String authToken){
+
+    }
 }
