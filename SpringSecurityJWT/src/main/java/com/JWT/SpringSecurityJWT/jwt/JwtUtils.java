@@ -2,6 +2,7 @@ package com.JWT.SpringSecurityJWT.jwt;
 
 
 import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.security.Keys;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Value;
@@ -50,6 +51,8 @@ public class JwtUtils {
             System.out.println("validate");
             Jwts.parser().verifyWith((SecretKey) key()).build().parseSignedClaims(authToken);
             return true;
+        }catch (MalformedJwtException e){
+            System.out.println("Invalid JWT token: {}"+e.getMessage());
         }
     }
 }
