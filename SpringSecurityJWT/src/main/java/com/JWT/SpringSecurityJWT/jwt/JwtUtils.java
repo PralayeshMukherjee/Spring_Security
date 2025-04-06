@@ -62,5 +62,6 @@ public class JwtUtils {
         }catch (IllegalArgumentException e){
             System.out.println("Jwt claims String is empty: {}"+e.getMessage());
         }
+        return false;
     }
 }
