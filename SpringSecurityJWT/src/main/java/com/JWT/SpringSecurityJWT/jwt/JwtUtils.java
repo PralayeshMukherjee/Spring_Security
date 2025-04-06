@@ -59,6 +59,8 @@ public class JwtUtils {
             System.out.println("Jwt token is expired: {}"+e.getMessage());
         }catch (UnsupportedJwtException e){
             System.out.println("Jwt token is unsupported: {}"+e.getMessage());
+        }catch (IllegalArgumentException e){
+            System.out.println("Jwt claims String is empty: {}"+e.getMessage());
         }
     }
 }
