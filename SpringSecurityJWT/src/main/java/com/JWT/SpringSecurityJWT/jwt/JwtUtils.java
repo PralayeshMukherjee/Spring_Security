@@ -28,6 +28,6 @@ public class JwtUtils {
         return Keys.hmacShaKeyFor(Decoder.BASE64.decode(jwtSecret));
     }
     public String generateTokenFromUsername(UserDetails userDetails){
-
+        String username = userDetails.getUsername();
     }
 }
